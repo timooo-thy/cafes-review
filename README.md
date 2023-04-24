@@ -54,9 +54,6 @@ Note: Make sure to update the Flask app file (`app.py` in this example) with the
 ## Contributing
 If you wish to contribute to this project, you can fork the repository, make changes, and submit a pull request. Any improvements or bug fixes are welcome!
 
-## License
-This project is licensed under the [MIT License](LICENSE).
-
 ## Contribution
 
 If you have a favorite cafe in Singapore or Malaysia that you'd like to recommend or if you'd like to contribute your own cafe reviews, feel free to submit a pull request. Let's work together to create a comprehensive guide to the best cafes in the region!
