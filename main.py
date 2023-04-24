@@ -13,7 +13,7 @@ class CafeForm(FlaskForm):
     close_time = StringField(label='Closing Time (e.g. 10pm)', validators=[DataRequired()])
     coffee_rating = SelectField(label='Coffee Rating', choices=[('1', '☕️'), ('', '☕️☕️'), ('3', '☕️☕️☕️'), ('4', '☕️☕️☕️☕️'), ('5', '☕️☕️☕️☕️☕️')], validators=[DataRequired()])
     wifi_rating = SelectField(label='Wifi Strength Rating', choices=[('1', '✘'), ('2', '💪'), ('3', '💪💪'), ('4', '💪💪💪️'), ('5', '💪💪💪💪'), ('6', '💪💪💪💪💪')], validators=[DataRequired()])
-    power_rating = SelectField(label='Power Socket Availability', choices=[('1', '✘'), ('2', '🔌'), ('3', '🔌🔌'), ('4', '🔌🔌🔌️'), ('5', '🔌🔌🔌🔌'), ('6', '🔌🔌🔌🔌🔌')], validators=[DataRequired()])
+    price_rating = SelectField(label='Price', choices=[('1', '＄'), ('2', '＄＄'), ('3', '＄＄＄'), ('4', '＄＄＄＄'), ('5', '＄＄＄＄＄')], validators=[DataRequired()])
     submit = SubmitField(label="Submit")
 
 
@@ -34,7 +34,7 @@ def add_cafe():
     form = CafeForm()
     if form.validate_on_submit():
         with open('cafe-data.csv', 'a', newline='', encoding="utf8") as csv_file:
-            csv_file.write(f"\n{form.cafe_name.data},{form.location_url.data},{form.open_time.data},{form.close_time.data},{form.coffee_rating.choices[int(form.coffee_rating.data)][1]},{form.wifi_rating.choices[int(form.wifi_rating.data)][1]},{form.power_rating.choices[int(form.power_rating.data)][1]}")
+            csv_file.write(f"\n{form.cafe_name.data},{form.location_url.data},{form.open_time.data},{form.close_time.data},{form.coffee_rating.choices[int(form.coffee_rating.data)][1]},{form.wifi_rating.choices[int(form.wifi_rating.data)][1]},{form.price_rating.choices[int(form.price_rating.data)][1]}")
         return redirect('/cafes')
     return render_template('add.html', form=form)
 
